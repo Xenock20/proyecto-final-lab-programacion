@@ -20,28 +20,28 @@ namespace censo
     {
         public void ingreseNombre()
         {
-            Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+            Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine("│                             INGRESE EL NOMBRE                                 │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
         }
 
         public void ingreseEdad()
         {
-            Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+            Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine("│                              INGRESE LA EDAD                                  │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
         }
 
         public void ingreseDNI()
         {
-            Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+            Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine("│                              INGRESE EL DNI                                   │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
         }
 
         public void ingreseSexo()
         {
-            Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+            Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine("│                              INGRESE EL SEXO                                  │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
         }
@@ -121,19 +121,19 @@ namespace censo
             msg.ingreseNombre();
             string fullName = Console.ReadLine();
 
-            while(fullName == null || fullName.Length > 30)
+            while(fullName.Length == 0 || fullName.Length > 30)
             {
-                if(fullName == null)
+                if(fullName.Length == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                             EL NOMBRE ESTA VACIO                              │");
                     msg.ingreseNombre();
                     fullName = Console.ReadLine();
                 } else if(fullName.Length > 30)
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                           SOLO HASTA 30 CARACTERES                            │");
                     msg.ingreseNombre();
                     fullName = Console.ReadLine();
@@ -144,28 +144,28 @@ namespace censo
             msg.ingreseEdad();
             string edad = Console.ReadLine();
 
-            while (edad == null || validarNum(edad) || validarEdad(edad))
+            while (edad.Length == 0 || !int.TryParse(edad, out int numFinaly) || !(int.Parse(edad) >= 0 && int.Parse(edad) <= 99))
             {
-                if (edad == null)
+                if (edad.Length == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                             LA EDAD ESTA VACIO                                │");
                     msg.ingreseEdad();
                     edad = Console.ReadLine();
                 }
-                else if (validarNum(edad))
+                else if (!int.TryParse(edad, out numFinaly))
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                               NO ES UN NUMERO                                 │");
                     msg.ingreseEdad();
                     edad = Console.ReadLine();
                 }
-                else if (validarEdad(edad))
+                else if (!(int.Parse(edad) >= 0 && int.Parse(edad) <= 99))
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                                 EDAD INVALIDA                                 │");
                     msg.ingreseEdad();
                     edad = Console.ReadLine();
@@ -176,28 +176,28 @@ namespace censo
             msg.ingreseDNI();
             string dni = Console.ReadLine();
 
-            while (dni == null || (dni.Length < 7 && dni.Length > 8) || validarNum(dni))
+            while (dni.Length == 0 || (dni.Length < 7 || dni.Length > 8) || !int.TryParse(dni, out int numFinaly))
             {
-                if (dni == null)
+                if (dni.Length == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                             EL DNI ESTA VACIO                                 │");
                     msg.ingreseDNI();
                     dni = Console.ReadLine();
                 }
-                else if ((dni.Length < 7 && dni.Length > 8))
+                else if ((dni.Length < 7 || dni.Length > 8))
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                           SOLO HASTA 7 o 8 DIGITOS                            │");
                     msg.ingreseDNI();
                     dni = Console.ReadLine();
                 }
-                else if (validarNum(dni))
+                else if (!int.TryParse(dni, out numFinaly))
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                           NO ES UN NUMERO                                     │");
                     msg.ingreseDNI();
                     dni = Console.ReadLine();
@@ -208,21 +208,21 @@ namespace censo
             msg.ingreseSexo();
             string sexo = Console.ReadLine();
 
-            while (sexo == null)
+            while (sexo.Length == 0 || !(sexo[0] == 'm' || sexo[0] == 'f'))
             {
-                if (sexo == null)
+                if (sexo.Length == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
                     Console.WriteLine("│                             EL VALOR ESTA VACIO                               │");
                     msg.ingreseSexo();
                     sexo = Console.ReadLine();
                 }
-                else if ((sexo != "M" || sexo != "F"))
+                else if (!(sexo[0] == 'm' || sexo[0] == 'f'))
                 {
                     Console.Clear();
-                    Console.WriteLine("┌┌───────────────────────────────────────────────────────────────────────────────┐");
-                    Console.WriteLine("│                           SOLO VALOR INCORRECTO                               │");
+                    Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
+                    Console.WriteLine("│                     SOLO VALOR M (MASCULINO) O F (FEMENINO)                   │");
                     msg.ingreseSexo();
                     sexo = Console.ReadLine();
                 }
@@ -234,17 +234,6 @@ namespace censo
             ps.sexo = char.Parse(sexo);
 
             listaDePersonasCenso.Add(ps);
-        }
-
-        private static bool validarEdad(string edad)
-        {
-            return !(int.Parse(edad) >= 0 && int.Parse(edad) <= 99);
-        }
-
-        private static bool validarNum(string num)
-        {
-            int numFinaly;
-            return !int.TryParse(num, out numFinaly);
         }
     }
 }
