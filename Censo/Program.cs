@@ -10,7 +10,6 @@ namespace censo
     public class Persona
     {
         public string nombre { get; set; }
-        public string apellido { get; set; }
         public char sexo { get; set; }
         public int edad { get; set; }
         public ulong dni { get; set; }
@@ -21,7 +20,7 @@ namespace censo
         public void ingreseNombre()
         {
             Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
-            Console.WriteLine("│                             INGRESE EL NOMBRE                                 │");
+            Console.WriteLine("│                        INGRESE EL NOMBRE COMPLETO                             │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
         }
 
@@ -42,7 +41,16 @@ namespace censo
         public void ingreseSexo()
         {
             Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
-            Console.WriteLine("│                              INGRESE EL SEXO                                  │");
+            Console.WriteLine("│                          INGRESE EL SEXO  (M o F)                             │");
+            Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
+        }
+
+        public void finalIngreso()
+        {
+            Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
+            Console.WriteLine("│                  PERSONA AGREGADA CORRACTAMENTE AL CENSO                      │");
+            Console.WriteLine("│              Precione cualquier tecla para ingresar otra persona              │");
+            Console.WriteLine("│              Si desea terminar el registro presione la tecla ESC              │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
         }
     }
@@ -116,6 +124,8 @@ namespace censo
 
         static public void ingreso()
         {
+            Console.Clear();
+
             Persona ps = new Persona();
 
             msg.ingreseNombre();
@@ -208,7 +218,7 @@ namespace censo
             msg.ingreseSexo();
             string sexo = Console.ReadLine();
 
-            while (sexo.Length == 0 || !(sexo[0] == 'm' || sexo[0] == 'f'))
+            while (sexo.Length == 0 || !((sexo[0] == 'M' || sexo[0] == 'F') || (sexo[0] == 'm' || sexo[0] == 'f')))
             {
                 if (sexo.Length == 0)
                 {
@@ -234,6 +244,8 @@ namespace censo
             ps.sexo = char.Parse(sexo);
 
             listaDePersonasCenso.Add(ps);
+
+            msg.finalIngreso();
         }
     }
 }
