@@ -34,7 +34,6 @@ namespace censo
 
         public void ingreseEdad()
         {
-            Console.Clear();
             Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine("│                              INGRESE LA EDAD                                  │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
@@ -42,7 +41,6 @@ namespace censo
 
         public void ingreseDNI()
         {
-            Console.Clear();
             Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine("│                              INGRESE EL DNI                                   │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
@@ -50,7 +48,6 @@ namespace censo
 
         public void ingreseSexo()
         {
-            Console.Clear();
             Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
             Console.WriteLine("│                          INGRESE EL SEXO  (M o F)                             │");
             Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
@@ -101,7 +98,7 @@ namespace censo
             Console.WriteLine("├───────────────────────────────────────────────────────────────────────────────┤");
             Console.WriteLine("│    A. Listado de todas las personas ingresadas.                               │");
             Console.WriteLine("│    B. Listado de personas ordenadas por edad de menor a mayor.                │");
-            Console.WriteLine("│    C. Lista de personas masculinas ordenados alfabeticamente.                 │");
+            Console.WriteLine("│    C. Lista de personas masculinas ordenados alfabeticamente (apellido).      │");
             Console.WriteLine("│    D. Buscar por DNI.                                                         │");
             Console.WriteLine("│    E. Buscar por apellido.                                                    │");
             Console.WriteLine("│    F. Salir del sistema.                                                      │");
@@ -149,13 +146,18 @@ namespace censo
 
         private static void opcA()
         {
-            Console.WriteLine("\tAPELLIDO\t|\tNOMBRE\t|\tDNI\t|\tEDAD\t|\tSEXO\t");
+            Console.WriteLine("┌──────────────────────────────┬──────────────────────────────┬──────────┬────────┬────────┐");
+            Console.WriteLine("|           APELLIDO           |            NOMBRE            |    DNI   |  EDAD  |  SEXO  |");
+
             for (int i = 0; i <= listaDePersonasCenso.Count() - 1; i++)
             {
-                Console.WriteLine("\t" + listaDePersonasCenso[i].apellido + "\t\t" + listaDePersonasCenso[i].nombre + "\t\t" + listaDePersonasCenso[i].dni + "\t\t" + listaDePersonasCenso[i].edad + "\t\t" + listaDePersonasCenso[i].sexo);
+                Console.WriteLine("├──────────────────────────────┼──────────────────────────────┼──────────┼────────┼────────┤");
+                Console.WriteLine(rowList(listaDePersonasCenso[i], "A"));
             }
 
+            Console.WriteLine("└──────────────────────────────┴──────────────────────────────┴──────────┴────────┴────────┘");
         }
+
 
         private static void opcB()
         {
@@ -166,11 +168,16 @@ namespace censo
                 return x.edad.CompareTo(y.edad);
             });
 
-            Console.WriteLine("\tAPELLIDO\t|\tNOMBRE\t|\tEDAD\t");
+            Console.WriteLine("┌──────────────────────────────┬──────────────────────────────┬────────┐");
+            Console.WriteLine("|           APELLIDO           |            NOMBRE            |  EDAD  |");
+
+
             for (int i = 0; i <= listaOrdenada.Count() - 1; i++)
             {
-                Console.WriteLine("\t" + listaOrdenada[i].apellido + "\t\t" + listaOrdenada[i].nombre + "\t\t" + listaOrdenada[i].edad + "\t\t");
+                Console.WriteLine("├──────────────────────────────┼──────────────────────────────┼────────┤");
+                Console.WriteLine(rowList(listaOrdenada[i], "B"));
             }
+            Console.WriteLine("└──────────────────────────────┴──────────────────────────────┴────────┘");
         }
 
         private static void opcC()
@@ -185,10 +192,16 @@ namespace censo
 
             listaMasculinaOrdenadaAlfa.Sort((x, y) => string.Compare(x.apellido, y.apellido));
 
+            Console.WriteLine("┌──────────────────────────────┬──────────────────────────────┬──────────┬────────┬────────┐");
+            Console.WriteLine("|           APELLIDO           |            NOMBRE            |    DNI   |  EDAD  |  SEXO  |");
+
             for (int i = 0; i <= listaMasculinaOrdenadaAlfa.Count() - 1; i++)
             {
-                Console.WriteLine("\t" + listaMasculinaOrdenadaAlfa[i].apellido + "\t\t" + listaMasculinaOrdenadaAlfa[i].nombre + "\t\t" + listaMasculinaOrdenadaAlfa[i].edad);
+                Console.WriteLine("├──────────────────────────────┼──────────────────────────────┼──────────┼────────┼────────┤");
+                Console.WriteLine(rowList(listaMasculinaOrdenadaAlfa[i], "A"));
             }
+
+            Console.WriteLine("└──────────────────────────────┴──────────────────────────────┴──────────┴────────┴────────┘");
         }
 
 
@@ -199,13 +212,19 @@ namespace censo
             Console.WriteLine("Ingrese el dni que esta buscando: ");
             dniB = ulong.Parse(Console.ReadLine());
 
+            Console.WriteLine("┌──────────────────────────────┬──────────────────────────────┬──────────┬────────┬────────┐");
+            Console.WriteLine("|           APELLIDO           |            NOMBRE            |    DNI   |  EDAD  |  SEXO  |");
+
             for (int i = 0; i <= listaDePersonasCenso.Count - 1; i++)
             {
                 if (dniB == listaDePersonasCenso[i].dni)
                 {
-                    Console.WriteLine("\t" + listaDePersonasCenso[i].apellido + "\t\t" + listaDePersonasCenso[i].nombre + "\t\t" + listaDePersonasCenso[i].dni + "\t\t" + listaDePersonasCenso[i].edad + "\t\t" + listaDePersonasCenso[i].sexo);
+                    Console.WriteLine("├──────────────────────────────┼──────────────────────────────┼──────────┼────────┼────────┤");
+                    Console.WriteLine(rowList(listaDePersonasCenso[i], "A"));
                 }
             }
+            Console.WriteLine("└──────────────────────────────┴──────────────────────────────┴──────────┴────────┴────────┘");
+
         }
 
         private static void opcE()
@@ -215,13 +234,126 @@ namespace censo
             Console.WriteLine("Ingrese el apellido que esta buscando: ");
             apellidoB = Console.ReadLine();
 
+            Console.WriteLine("┌──────────────────────────────┬──────────────────────────────┬──────────┬────────┬────────┐");
+            Console.WriteLine("|           APELLIDO           |            NOMBRE            |    DNI   |  EDAD  |  SEXO  |");
+
             for (int i = 0; i <= listaDePersonasCenso.Count - 1; i++)
             {
                 if (apellidoB == listaDePersonasCenso[i].apellido)
                 {
-                    Console.WriteLine("\t" + listaDePersonasCenso[i].apellido + "\t\t" + listaDePersonasCenso[i].nombre + "\t\t" + listaDePersonasCenso[i].dni + "\t\t" + listaDePersonasCenso[i].edad + "\t\t" + listaDePersonasCenso[i].sexo);
+                    Console.WriteLine("├──────────────────────────────┼──────────────────────────────┼──────────┼────────┼────────┤");
+                    Console.WriteLine(rowList(listaDePersonasCenso[i], "A"));
                 }
             }
+            Console.WriteLine("└──────────────────────────────┴──────────────────────────────┴──────────┴────────┴────────┘");
+        }
+
+        private static string rowList(Persona persona, string v)
+        {
+            string row = "|";
+            int numeroDeEspacios = 0;
+            int mitadDeNumDeEspacio = numeroDeEspacios / 2;
+
+            switch (v)
+            {
+                case "A":
+                    numeroDeEspacios = 30 - persona.apellido.Length;
+
+                    for (int i = 0; i <= numeroDeEspacios; i++)
+                    {
+                        if (i == mitadDeNumDeEspacio)
+                        {
+                            row += persona.apellido;
+                            continue;
+                        }
+
+                        row += " ";
+                    }
+
+                    row += "|";
+
+                    numeroDeEspacios = 30 - persona.nombre.Length;
+
+                    for (int i = 0; i <= numeroDeEspacios; i++)
+                    {
+                        if (i == mitadDeNumDeEspacio)
+                        {
+                            row += persona.nombre;
+                            continue;
+                        }
+
+                        row += " ";
+                    }
+
+                    row += "|";
+
+                    if ((persona.dni.ToString()).Length == 7)
+                    {
+                        row += (" " + persona.dni + "  ");
+                    }
+                    else
+                    {
+                        row += (" " + persona.dni + " ");
+                    }
+                    row += "|";
+
+                    if ((persona.edad.ToString()).Length == 1)
+                    {
+                        row += ("   " + persona.edad + "    ");
+                    }
+                    else
+                    {
+                        row += ("   " + persona.edad + "   ");
+                    }
+                    row += ("|   " + persona.sexo + "    |");
+
+                    return row;
+
+                case "B":
+
+                    numeroDeEspacios = 30 - persona.apellido.Length;
+
+                    for (int i = 0; i <= numeroDeEspacios; i++)
+                    {
+                        if (i == mitadDeNumDeEspacio)
+                        {
+                            row += persona.apellido;
+                            continue;
+                        }
+
+                        row += " ";
+                    }
+
+                    row += "|";
+
+                    numeroDeEspacios = 30 - persona.nombre.Length;
+
+                    for (int i = 0; i <= numeroDeEspacios; i++)
+                    {
+                        if (i == mitadDeNumDeEspacio)
+                        {
+                            row += persona.nombre;
+                            continue;
+                        }
+
+                        row += " ";
+                    }
+
+                    row += "|";
+
+                    if ((persona.edad.ToString()).Length == 1)
+                    {
+                        row += ("   " + persona.edad + "    |");
+                    }
+                    else
+                    {
+                        row += ("   " + persona.edad + "   |");
+                    }
+
+                    return row;
+            }
+
+            return row;
         }
 
         static public void ingreso()
@@ -253,7 +385,7 @@ namespace censo
                 }
             }
 
-
+            Console.Clear();
             msg.ingreseApellido();
             string fullApellido = Console.ReadLine();
 
@@ -277,7 +409,7 @@ namespace censo
                 }
             }
 
-
+            Console.Clear();
             msg.ingreseEdad();
             string edad = Console.ReadLine();
 
@@ -310,6 +442,7 @@ namespace censo
             }
 
 
+            Console.Clear();
             msg.ingreseDNI();
             string dni = Console.ReadLine();
 
@@ -342,6 +475,7 @@ namespace censo
             }
 
 
+            Console.Clear();
             msg.ingreseSexo();
             string sexo = Console.ReadLine();
 
@@ -369,7 +503,7 @@ namespace censo
             ps.apellido = fullApellido;
             ps.edad = int.Parse(edad);
             ps.dni = ulong.Parse(dni);
-            ps.sexo = char.Parse(sexo);
+            ps.sexo = char.Parse(sexo.ToUpper());
 
             listaDePersonasCenso.Add(ps);
 
@@ -380,21 +514,22 @@ namespace censo
         private static void Salir()
         {
             Console.Clear();
-            Console.WriteLine("-----------------------------");
-            Console.WriteLine("  Desea salir del programa?  ");
-            Console.WriteLine("-----------------------------");
-            Console.WriteLine("  1- Si");
-            Console.WriteLine("  2- No");
-            Console.WriteLine("-----------------------------");
+            Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
+            Console.WriteLine("│                          DESEA SALIR DEL PROGRAMA?                            │");
+            Console.WriteLine("├───────────────────────────────────────────────────────────────────────────────┤");
+            Console.WriteLine("│                          1- SI                                                │");
+            Console.WriteLine("│                          2- NO                                                │");
+            Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
+
             Console.Write("  ingrese una opcion: ");
             string S = Console.ReadLine();
 
             if (!int.TryParse(S, out numFinaly))
             {
                 Console.Clear();
-                Console.WriteLine("-------------------------------------------------");
-                Console.WriteLine("  Valor incorrecto  (precione enter para seguir)");
-                Console.WriteLine("-------------------------------------------------");
+                Console.WriteLine("┌───────────────────────────────────────────────────────────────────────────────┐");
+                Console.WriteLine("│          VALOR INCORRECTO (PRECIONE CUALQUIER TECLA PARA SEGUIR)              │");
+                Console.WriteLine("└───────────────────────────────────────────────────────────────────────────────┘");
                 Console.ReadLine();
                 Salir();
             }
