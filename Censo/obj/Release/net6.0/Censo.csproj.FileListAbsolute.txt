@@ -1,0 +1,15 @@
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\bin\Release\net6.0\Censo.exe
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\bin\Release\net6.0\Censo.deps.json
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\bin\Release\net6.0\Censo.runtimeconfig.json
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\bin\Release\net6.0\Censo.dll
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\bin\Release\net6.0\Censo.pdb
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.csproj.AssemblyReference.cache
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.AssemblyInfoInputs.cache
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.AssemblyInfo.cs
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.csproj.CoreCompileInputs.cache
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.dll
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\refint\Censo.dll
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.pdb
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\Censo.genruntimeconfig.cache
+C:\Users\xenoc\Desktop\Projects\Proyecto de lab\Censo\Censo\obj\Release\net6.0\ref\Censo.dll
